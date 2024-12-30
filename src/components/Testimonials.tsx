@@ -1,5 +1,7 @@
 import React from "react";
 import { testimonials } from "@/constants";
+import Image from "next/image";
+
 import {
   Carousel,
   CarouselContent,
@@ -7,16 +9,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Button } from "./ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 const LatestNews = () => {
-  const handleClick = (link: string) => {
-    // You can handle the button click here
-    window.open(link, "_blank");
-  };
-
   return (
     <div className="bg-orange-50 h-full py-20 px-4">
       <h2 className="font-medium text-3xl mb-3 text-center">Testimonials</h2>
@@ -28,7 +24,7 @@ const LatestNews = () => {
                 <DialogTrigger className="cursor-pointer" asChild>
                   <figure className="lg:flex lg:flex-row">
                     <span className="relative inline-flex items-center justify-center lg:text-start lg:w-2/5">
-                      <img
+                      <Image
                         className="rounded-md"
                         src={testimonial.imageUrl}
                         alt={testimonial.altText}
@@ -40,8 +36,9 @@ const LatestNews = () => {
 
                     <figcaption className="lg:p-3 lg:w-3/5">
                       <h3 className="text-md mb-3 mt-3 lg:mt-0 text-xl">
-                        "{testimonial.description}"
+                        &quot;{testimonial.description}&quot;
                       </h3>
+
                       <h3 className="font-medium text-end lg:mt-5">
                         - {testimonial.user}
                       </h3>
@@ -61,8 +58,9 @@ const LatestNews = () => {
                         "https://youtu.be",
                         "https://www.youtube.com/embed"
                       )}
-                      title={testimonial.altText}
+                      title={`Video testimonial by ${testimonial.user}`}
                       className="aspect-video max-w-full h-fit"
+                      loading="lazy"
                     ></iframe>
                   </div>
                 </DialogContent>

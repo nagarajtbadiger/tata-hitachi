@@ -18,7 +18,7 @@ const LatestNews = () => {
 
   return (
     <div className="bg-orange-500 h-full py-20 px-3 text-center">
-      <h2 className="font-medium text-3xl mb-3">What's New? </h2>
+      <h2 className="font-medium text-3xl mb-3">What&quot;s New? </h2>
       <Carousel className="lg:w-2/3 lg:mt-8 lg:mx-auto">
         <CarouselContent>
           {newsData.map((item, index) => (
